@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Game.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 1280, 720 )
@@ -20,3 +22,47 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 shape = SubResource( 1 )
+
+[node name="logger" type="RichTextLabel" parent="."]
+margin_left = 21.0
+margin_top = 20.0
+margin_right = 305.0
+margin_bottom = 96.0
+scroll_active = false
+scroll_following = true
+
+[node name="TouchButtons" type="Control" parent="."]
+margin_left = 128.0
+margin_top = 440.0
+margin_right = 168.0
+margin_bottom = 480.0
+
+[node name="TouchUpButton" type="TouchScreenButton" parent="TouchButtons"]
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 2 )
+action = "ui_up"
+visibility_mode = 1
+
+[node name="TouchDownButton" type="TouchScreenButton" parent="TouchButtons"]
+position = Vector2( 32, 96 )
+rotation = 3.14159
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 2 )
+action = "ui_down"
+visibility_mode = 1
+
+[node name="TouchRightButton" type="TouchScreenButton" parent="TouchButtons"]
+position = Vector2( 64, 32 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 2 )
+action = "ui_right"
+visibility_mode = 1
+
+[node name="TouchLeftButton" type="TouchScreenButton" parent="TouchButtons"]
+position = Vector2( -32, 64 )
+rotation = 4.71239
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 2 )
+action = "ui_left"
+visibility_mode = 1
