@@ -2,6 +2,7 @@ name: "godot-ci export"
 on:
   - push
   - pull_request
+  - workflow_dispatch
   
 env:
   GODOT_VERSION: 3.5.1
